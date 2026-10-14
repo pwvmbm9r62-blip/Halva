@@ -436,6 +436,42 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 }
 @media(max-width:370px){.halva-handwriting-original{left:62%;top:clamp(13px,3svh,23px);width:clamp(60px,19vw,72px)}}
 @media(max-width:699px) and (max-height:700px){.halva-handwriting-original{top:clamp(12px,3svh,24px);width:clamp(58px,18vw,75px)}}
+
+/* Light theme override for choose/game screens */
+.chooser,.game{background:
+  radial-gradient(circle at 12% 10%, rgba(130,186,255,.28), transparent 26%),
+  radial-gradient(circle at 88% 16%, rgba(175,220,255,.48), transparent 28%),
+  linear-gradient(180deg,#f7fbff 0%,#eef5ff 42%,#e9f1ff 100%) !important;color:#0e2340}
+.chooser:before,.game:before{background:#9fd0ff !important;opacity:.18 !important;filter:blur(120px) !important}
+.chooser:after{background:#b8c7ff !important;opacity:.16 !important;filter:blur(130px) !important}
+.choose-title,.game-title{color:#102544 !important;text-shadow:none !important}
+.choose-title em,.game-title em{color:#2d93ff !important}
+.choose-sub,.game-sub,.note-line,.footer,.game-footnote{color:#5c718d !important}
+.back{background:rgba(255,255,255,.82) !important;color:#20426f !important;border-color:rgba(127,170,230,.45) !important;box-shadow:0 8px 24px rgba(81,125,188,.09)}
+.stage-chip{background:rgba(60,128,255,.08) !important;color:#4f78a9 !important;border-color:rgba(121,164,232,.34) !important}
+.guide-card,.answer-area,.chat,.result{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(244,249,255,.96)) !important;border-color:rgba(126,170,234,.34) !important;box-shadow:0 12px 35px rgba(84,118,170,.10), inset 0 1px 0 rgba(255,255,255,.9) !important}
+.guide-copy strong,.guide-copy p,.result,.result b{color:#143253 !important}
+.guide-bubble{background:rgba(68,139,255,.09) !important;border-color:rgba(116,170,236,.28) !important;color:#466789 !important}
+.person-card,.game .choice{background:linear-gradient(180deg,#ffffff 0%,#f1f6ff 100%) !important;border-color:rgba(128,171,237,.48) !important;box-shadow:0 10px 28px rgba(81,118,179,.10) !important;color:#17375f !important}
+.person-card .meta strong,.person-card .desc,.game .choice,.bubble .line{color:#163355 !important}
+.person-card .meta span{color:#6885a8 !important}
+.person-card .badge,.client-chip,.call-status{background:rgba(60,128,255,.10) !important;border-color:rgba(118,170,238,.30) !important;color:#365983 !important}
+.person-card .go,.game .choice .num{box-shadow:0 6px 18px rgba(60,128,255,.22) !important}
+.progress{background:rgba(171,199,235,.45) !important;box-shadow:none !important}
+.progress span{background:linear-gradient(90deg,#57b0ff,#4ed8ff) !important;box-shadow:0 0 18px rgba(86,176,255,.35) !important}
+.character strong,.client-chip,.call-status,.answer-title,.prompt{color:#143253 !important}
+.character span,.bubble .who,.operator .bubble .who,.answer-area::before,.dialog-history::before{color:#5b8bc4 !important}
+.chat-row:not(.current){opacity:.82 !important}
+.bubble{background:linear-gradient(180deg,#ffffff 0%,#f2f7ff 100%) !important;border-color:rgba(127,170,238,.34) !important;box-shadow:0 8px 20px rgba(90,121,170,.08) !important}
+.chat-row.current .bubble{border-color:rgba(91,178,255,.65) !important;box-shadow:0 0 0 1px rgba(99,178,255,.10),0 12px 28px rgba(78,112,164,.14),0 0 22px rgba(95,183,255,.12) !important}
+.chat-row.current.customer .bubble{background:linear-gradient(180deg,#ffffff 0%,#edf5ff 100%) !important}
+.operator .bubble{background:linear-gradient(135deg,#3b8dff,#4560f8) !important;border-color:rgba(100,190,255,.34) !important}
+.operator .bubble .line,.operator .bubble .who{color:#fff !important}
+.answer-area::before{letter-spacing:.16em !important}
+.game .choice:hover,.person-card:hover{border-color:#6ec8ff !important;box-shadow:0 0 0 2px rgba(102,194,255,.12),0 12px 28px rgba(82,122,182,.14) !important}
+.game .choice .arrow{color:#5ea8ff !important}
+.dialog-history::before{content:"СЕЙЧАС ГОВОРИТ КЛИЕНТ";text-shadow:none !important}
+
 </style>
 </head>
 <body>
