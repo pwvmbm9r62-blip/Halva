@@ -508,6 +508,60 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
   box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 4px 12px rgba(220,190,90,.12) !important;
 }
 
+
+/* Responsive laptop layout: ONLY the character-selection screen. Mobile stays unchanged. */
+@media (min-width: 900px) {
+  #choose.chooser {
+    width: min(100%, 1100px);
+    max-width: 1100px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: 24px clamp(30px, 3.7vw, 48px) 26px;
+    gap: 14px;
+  }
+  #choose .choose-title {
+    font-size: clamp(39px, 3.5vw, 49px);
+    margin: 4px 0 6px;
+  }
+  #choose .choose-sub {
+    max-width: 80ch;
+    font-size: 15px;
+  }
+  #choose .guide-card {
+    padding: 12px 17px;
+    gap: 16px;
+    align-items: center;
+    border-radius: 22px;
+  }
+  #choose .guide-avatar {
+    width: 66px;
+    height: 66px;
+    flex-basis: 66px;
+    border-radius: 18px;
+  }
+  #choose .guide-copy p { margin: 4px 0 7px; }
+  #choose .guide-bubble { padding: 5px 11px; }
+  #choose .people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+  }
+  #choose .person-card {
+    min-width: 0;
+    min-height: 178px;
+    padding: 17px 20px;
+    border-radius: 23px;
+    gap: 7px 10px;
+    align-content: start;
+  }
+  #choose .person-card .meta strong { font-size: 23px; }
+  #choose .person-card .meta span { font-size: 13px; line-height: 1.35; }
+  #choose .person-card .desc { font-size: 14px; line-height: 1.45; }
+  #choose .person-card .go { width: 44px; height: 44px; }
+  #choose .note-line { margin: 0; font-size: 12px; }
+}
+
 </style>
 </head>
 <body>
