@@ -562,6 +562,111 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
   #choose .note-line { margin: 0; font-size: 12px; }
 }
 
+
+/* Laptop dialogue layout: two-column game, mobile preserved */
+.desktop-game-grid,.desktop-dialog-column,.desktop-choice-column{display:contents}
+.desktop-client-profile{display:none}
+@media (min-width:900px){
+  #game.game{
+    width:min(100%,1190px);max-width:1190px;margin:0 auto;
+    min-height:100dvh;padding:22px clamp(24px,3.2vw,42px) 18px;
+    gap:17px;overflow:visible;
+  }
+  #game .game-top{min-height:46px}
+  #game .game-top .back{padding:12px 17px;font-size:14px}
+  #game .game-top .stage-chip{font-size:11px;padding:11px 15px}
+  #game .desktop-game-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(360px,.82fr);gap:19px;align-items:stretch;flex:1;min-height:0}
+  #game .desktop-dialog-column{
+    display:flex;flex-direction:column;gap:14px;min-width:0;
+    min-height:615px;height:calc(100dvh - 146px);max-height:780px;
+    padding:26px 24px 16px;
+    border:1px solid rgba(143,184,238,.55);border-radius:29px;
+    background:linear-gradient(160deg,rgba(255,255,255,.97) 0%,rgba(242,248,255,.97) 66%,rgba(235,245,255,.97) 100%);
+    box-shadow:0 18px 50px rgba(52,103,178,.13), inset 0 1px 0 #fff;
+  }
+  #game .dialog-head{flex:0 0 auto}
+  #game .dialog-head .game-title{font-size:clamp(32px,3.1vw,43px);line-height:1.07;margin:0 0 10px}
+  #game .dialog-head .game-sub{max-width:58ch;font-size:15px;line-height:1.55;color:#557395!important}
+  #game .dialog-kicker{font-size:11px;margin-bottom:11px;letter-spacing:.17em;color:#418ad0}
+  #game .call-state{margin:2px 0 0;flex:0 0 auto}
+  #game .call-status{padding:10px 15px;font-size:13px}
+  #game .turn-counter{font-size:13px;color:#527ca6}
+  #game .progress{flex:0 0 auto;height:8px}
+  #game .dialog-history{
+    flex:1;min-height:150px;overflow-y:auto;overflow-x:hidden;
+    padding:20px 9px 26px 4px;gap:16px;
+    scrollbar-color:#b8d3f4 transparent;scrollbar-width:thin;
+    overscroll-behavior:contain;
+    mask-image:linear-gradient(to bottom,transparent,#000 15px,#000 96%);
+  }
+  #game .dialog-history::before{font-size:11px;padding-left:4px;margin:0 0 8px;flex-shrink:0}
+  #game .chat-row{max-width:87%;gap:12px}
+  #game .chat-face{width:39px;height:39px;flex:0 0 39px;border-radius:14px;font-size:17px}
+  #game .bubble{padding:16px 18px;border-radius:20px 20px 20px 7px}
+  #game .operator .bubble{border-radius:20px 20px 7px 20px}
+  #game .bubble .line{font-size:15px;line-height:1.55}
+  #game .chat-row.current .bubble .line{font-size:17px;line-height:1.48}
+  #game .desktop-choice-column{display:flex;flex-direction:column;gap:16px;min-width:0;max-height:780px}
+  #game .desktop-client-profile{
+    display:flex;align-items:center;gap:14px;flex:0 0 auto;position:relative;
+    min-height:115px;padding:19px 20px;
+    border:1px solid rgba(139,184,240,.55);border-radius:25px;
+    background:linear-gradient(115deg,#eaf4ff,#fff 72%);
+    box-shadow:0 12px 32px rgba(58,108,182,.08);
+  }
+  #game .desktop-client-avatar{
+    width:63px;height:63px;flex:0 0 63px;display:grid;place-items:center;
+    border-radius:20px;background:linear-gradient(145deg,#278ffe,#3960ee);color:#fff;
+    font-weight:850;font-size:26px;box-shadow:0 9px 25px rgba(42,118,225,.24)
+  }
+  #game [data-client="alisa"] .desktop-client-avatar{background:linear-gradient(145deg,#8760e9,#e76db6)}
+  #game [data-client="elena"] .desktop-client-avatar{background:linear-gradient(145deg,#6991b9,#6ab8d1)}
+  #game [data-client="maxim"] .desktop-client-avatar{background:linear-gradient(145deg,#0bb1bc,#3978f2)}
+  #game .desktop-client-info{display:flex;flex-direction:column;gap:4px;min-width:0;padding-right:58px}
+  #game .desktop-profile-eyebrow{font-size:10px;letter-spacing:.14em;font-weight:900;color:#568dc3}
+  #game .desktop-client-info strong{font-size:21px;line-height:1.2;color:#142c4e;letter-spacing:-.025em}
+  #game .desktop-client-context{font-size:12px;line-height:1.4;color:#6782a2}
+  #game .desktop-profile-live{position:absolute;top:17px;right:17px;display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.045em;color:#438b83;font-weight:800}
+  #game .desktop-profile-live>span{width:7px;height:7px;border-radius:50%;background:#1dd1a0;box-shadow:0 0 0 3px #d4f9eb}
+  #game .answer-area{
+    flex:0 1 auto;overflow-y:auto;overscroll-behavior:contain;min-height:0;
+    max-height:calc(100dvh - 297px);margin:0;padding:22px 20px 21px;
+    border-radius:27px;scrollbar-color:#b8d3f4 transparent;scrollbar-width:thin;
+  }
+  #game .answer-area::before{display:none}
+  #game .answer-title{padding-bottom:12px;border-bottom:1px solid #e3ecfa;margin-bottom:15px;font-size:12px}
+  #game .answer-title .answer-dot{font-size:24px}
+  #game .choices{gap:11px}
+  #game .choice{font-size:14px;line-height:1.48;padding:15px 14px;min-height:80px;border-radius:17px;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+  #game .choice:hover{transform:translateY(-2px)}
+  #game .choice .num{width:31px;height:31px;flex-basis:31px}
+  #game .choice .arrow{font-size:24px}
+  #game .ending-panel{
+    margin:0;overflow-y:auto;overscroll-behavior:contain;max-height:calc(100dvh - 297px);
+    border-radius:27px;padding:23px 21px;scrollbar-color:#b8d3f4 transparent;scrollbar-width:thin;
+  }
+  /* Endings contain longer recaps: let the whole page scroll, not a nested mini-window. */
+  #game .desktop-choice-column:has(.ending-panel:not([hidden])){max-height:none}
+  #game .ending-panel:not([hidden]){flex-shrink:0;max-height:none;overflow:visible}
+  #game .ending-panel .ending-summary{padding:14px 13px}
+  #game .ending-panel .ending-summary-top{font-size:10px}
+  #game .game-footnote{font-size:12px;text-align:center;margin:0 0 2px;color:#7991ad}
+}
+@media(min-width:900px) and (max-height:780px){
+  #game .desktop-dialog-column{min-height:540px;height:calc(100dvh - 133px)}
+  #game .answer-area,#game .ending-panel{max-height:calc(100dvh - 279px)}
+}
+@media(min-width:900px) and (max-width:1040px){
+  #game.game{padding-inline:22px}
+  #game .desktop-game-grid{grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);gap:14px}
+  #game .desktop-dialog-column{padding:22px 19px 14px}
+  #game .desktop-client-profile{padding:16px}
+  #game .desktop-client-avatar{width:52px;height:52px;flex-basis:52px}
+  #game .desktop-client-info strong{font-size:19px}
+  #game .answer-area{padding:18px 15px}
+  #game .choice{font-size:13.3px}
+}
+
 </style>
 </head>
 <body>
@@ -635,10 +740,19 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
  </section>
  <section class="game screen" id="game" hidden aria-label="Диалог с клиентом">
   <header class="game-top"><button class="back" id="backToChoose" type="button"><span aria-hidden="true">←</span> Персонажи</button><span class="stage-chip" id="gameChip">ДИАЛОГ</span></header>
+  <div class="desktop-game-grid">
+   <div class="desktop-dialog-column">
   <div class="dialog-head"><div class="dialog-kicker">СЦЕНАРИЙ КЛИЕНТА</div><h1 class="game-title" id="gameTitle">Клиент <em>на линии.</em></h1><p class="game-sub" id="gameSub"></p></div>
   <div class="call-state"><div class="call-status"><i class="online-dot" aria-hidden="true"></i><span id="clientChip">Клиент на связи</span></div><span class="turn-counter" id="turnCounter">Раунд 1</span></div>
   <div class="progress" aria-label="Прогресс разговора"><span id="progressFill"></span></div>
   <div class="dialog-history" id="dialogueLog" role="log" aria-label="История разговора" aria-live="polite" aria-relevant="additions"></div>
+   </div>
+   <aside class="desktop-choice-column" aria-label="Ответы в диалоге">
+    <div class="desktop-client-profile" id="desktopClientProfile" aria-label="Информация о клиенте">
+     <span class="desktop-client-avatar" id="desktopClientAvatar" aria-hidden="true">К</span>
+     <div class="desktop-client-info"><span class="desktop-profile-eyebrow">ТВОЙ СОБЕСЕДНИК</span><strong id="desktopClientName">Клиент</strong><span class="desktop-client-context" id="desktopClientContext"></span></div>
+     <span class="desktop-profile-live" aria-label="Клиент на связи"><span></span> НА СВЯЗИ</span>
+    </div>
   <div class="answer-area" id="answerArea"><div class="answer-title"><span id="prompt">ТВОЯ РЕПЛИКА</span><span class="answer-dot" aria-hidden="true">✦</span></div><div class="choices" id="choices"></div></div>
   <div class="ending-panel" id="endingPanel" hidden><div class="ending-burst" id="endingIcon" aria-hidden="true">✦</div><div class="ending-type" id="endingType">ФИНАЛ</div><h2 id="endingTitle"></h2><p id="endingLesson"></p>
     <section class="ending-summary" id="endingSummary" hidden aria-label="Разбор успешного разговора">
@@ -646,6 +760,8 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
       <div class="ending-summary-rows" id="endingSummaryRows"></div>
     </section>
     <div class="ending-actions"><button class="ending-primary" id="restart" type="button">↻ Пройти ещё раз</button><button class="ending-secondary" id="anotherClient" type="button">Выбрать другого клиента</button></div></div>
+   </aside>
+  </div>
   <p class="game-footnote" id="footer">Сценарии учебные. Условия Халвы сверяй с актуальной базой знаний.</p>
  </section>
 </main>
@@ -726,6 +842,10 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
   $('gameTitle').innerHTML=meta.name+' <em>на линии.</em>';
   $('gameSub').textContent=meta.intro;
   $('clientChip').textContent=meta.name+', '+meta.age;
+  $('desktopClientProfile').dataset.client=client;
+  $('desktopClientAvatar').textContent=({stepa:'С',alisa:'А',elena:'Е',maxim:'М'}[client]||'К');
+  $('desktopClientName').textContent=meta.name+', '+meta.age;
+  $('desktopClientContext').textContent=meta.tone;
   show('game');resetStory();
   safeReplaceState({screen:'game',client},'',location.pathname+location.search+'#'+client);
   analytics.page('#'+client);
@@ -825,11 +945,17 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
    });
   }
   if(scroll){
-   // Keep latest client bubble and the response controls in view on mobile, without moving the browser to the top.
    requestAnimationFrame(()=>{
-    const target=n.ending?endingPanel:bubble;
-    const top=target.getBoundingClientRect().top+window.scrollY-120;
-    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+    if(window.matchMedia('(min-width: 900px)').matches){
+     // On desktop the conversation scrolls in its own pane; the answer panel stays visible.
+     log.scrollTop=log.scrollHeight;
+     if(n.ending)endingPanel.scrollTop=0;
+    }else{
+     // Preserve the existing mobile behavior.
+     const target=n.ending?endingPanel:bubble;
+     const top=target.getBoundingClientRect().top+window.scrollY-120;
+     window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+    }
    });
   }
  }
