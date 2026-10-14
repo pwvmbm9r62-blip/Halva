@@ -94,6 +94,190 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 @media(max-width:420px){.hero-stage{height:min(calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 6px), calc(100vw * 1520 / 712));}.start-hotspot{top:85.7%;height:8.1%}.chooser,.game{padding-left:16px;padding-right:16px}.guide-card{align-items:flex-start}.guide-avatar{width:68px;height:68px;flex-basis:68px;border-radius:20px}.person-card .meta strong{font-size:19px}}
 @media(min-width:600px){.app{border-left:1px solid #22518c;border-right:1px solid #22518c}.people-grid{gap:14px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+/* Expanded animated conversational simulator */
+.game{gap:14px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom));overflow:visible}
+.game-top{gap:8px}.game-top .back{white-space:nowrap}.game-top .stage-chip{font-size:10px;padding:9px 10px;letter-spacing:.035em}
+.dialog-kicker{font-size:10px;letter-spacing:.18em;color:#64bdff;font-weight:850;margin-bottom:9px}
+.dialog-head{position:relative;z-index:1}.dialog-head .game-title{margin:0 0 8px;font-size:clamp(29px,8.5vw,39px)}
+.dialog-head .game-sub{font-size:13px;line-height:1.48}
+.call-state{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.call-status{border:1px solid rgba(85,166,252,.25);background:rgba(15,53,105,.48);border-radius:50px;padding:9px 11px;font-weight:650;font-size:12px;display:flex;align-items:center;gap:7px}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#2ce6be;box-shadow:0 0 11px rgba(27,248,186,.8);animation:onlineGlow 2s infinite}
+@keyframes onlineGlow{50%{box-shadow:0 0 2px rgba(27,248,186,.2)}}
+.turn-counter{color:#9ab9ed;font-size:12px;white-space:nowrap}
+.game .progress{margin:0;position:relative;z-index:1}
+.dialog-history{display:flex;flex-direction:column;gap:12px;min-height:120px;position:relative;z-index:1;padding:12px 1px 4px}
+.chat-row{max-width:94%;display:flex;gap:9px;align-items:flex-end;animation:bubbleEnter .24s ease-out both}
+.chat-row.customer{align-self:flex-start}.chat-row.operator{align-self:flex-end;flex-direction:row-reverse}
+.chat-face{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:linear-gradient(135deg,#163c88,#54a6ff);display:grid;place-items:center;color:white;font-size:16px;font-weight:850;box-shadow:0 7px 15px rgba(0,20,55,.3)}
+.chat-face.stepa{background:linear-gradient(145deg,#2454ff,#25c9fa)}
+.chat-face.alisa{background:linear-gradient(145deg,#8658e9,#ee73bf)}
+.chat-face.elena{background:linear-gradient(145deg,#58769f,#65b8d0)}
+.chat-face.operator-face{background:linear-gradient(145deg,#1257a5,#273fff)}
+.bubble{min-width:0;padding:12px 14px;border-radius:19px 19px 19px 6px;border:1px solid rgba(121,176,243,.34);background:linear-gradient(135deg,rgba(30,69,136,.98),rgba(10,36,78,.97));box-shadow:0 8px 25px rgba(0,7,37,.22)}
+.operator .bubble{border-radius:19px 19px 6px 19px;background:linear-gradient(125deg,#1267ca,#284dca);border-color:rgba(147,227,255,.4)}
+.bubble .who{font-size:10px;font-weight:800;letter-spacing:.06em;color:#92ddff;margin-bottom:5px}
+.operator .bubble .who{color:#d6e7ff}
+.bubble .line{font-size:14.5px;line-height:1.49;color:#f6fbff;overflow-wrap:anywhere}
+@keyframes bubbleEnter{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.answer-area{position:relative;z-index:1;margin-top:7px;padding:15px 13px 14px;border:1px solid rgba(88,148,255,.24);background:linear-gradient(160deg,rgba(7,32,79,.95),rgba(4,20,56,.97));border-radius:23px;box-shadow:0 12px 38px rgba(0,0,0,.18)}
+.answer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;letter-spacing:.11em;font-weight:850;color:#85c8ff}
+.answer-dot{color:#59d6ff;font-size:20px}
+.game .choices{gap:9px}
+.game .choice{padding:12px 13px;min-height:64px;background:linear-gradient(110deg,rgba(26,83,161,.85),rgba(9,38,91,.95));border:1px solid rgba(98,175,255,.36);border-radius:15px;font-size:13.5px;line-height:1.36;gap:10px;box-shadow:0 4px 13px rgba(0,0,0,.10)}
+.game .choice .num{width:28px;height:28px;flex-basis:28px;font-size:12px}
+.game .choice .arrow{font-size:23px}
+.game .choice:hover,.person-card:hover{border-color:#56c2ff;box-shadow:0 0 25px rgba(34,116,255,.15)}
+.ending-panel{position:relative;z-index:1;border:1px solid rgba(93,197,255,.4);border-radius:24px;padding:22px 18px;background:linear-gradient(145deg,rgba(18,78,157,.8),rgba(6,29,71,.97));box-shadow:0 15px 44px rgba(0,10,50,.25);animation:bubbleEnter .35s ease-out}
+.ending-panel[hidden]{display:none!important}.ending-burst{font-size:28px;color:#65dcff;margin-bottom:12px;filter:drop-shadow(0 0 9px #398fff)}
+.ending-type{font-size:11px;font-weight:900;letter-spacing:.14em;color:#9bd5ff}.ending-panel h2{margin:9px 0 12px;font-size:26px;letter-spacing:-.035em;line-height:1.14}.ending-panel p{font-size:14px;line-height:1.55;color:#c9dcf6;margin:0 0 19px}
+.ending-actions{display:flex;flex-direction:column;gap:9px}.ending-actions button{min-height:53px;border-radius:15px;padding:10px 13px;color:white;font-size:14px;font-weight:750}
+.ending-primary{border:1px solid #77caff;background:linear-gradient(110deg,#1b9fff,#2858ef);box-shadow:0 7px 24px rgba(15,109,255,.29)}
+.ending-secondary{border:1px solid rgba(131,199,255,.30);background:rgba(22,71,140,.45)}
+.ending-panel[data-tone="neutral"]{border-color:rgba(163,168,255,.38)}.ending-panel[data-tone="neutral"] .ending-burst{color:#c6bcff}
+.ending-panel[data-tone="bad"]{border-color:rgba(255,133,161,.43)}.ending-panel[data-tone="bad"] .ending-burst{color:#ff8cac}
+.game-footnote{color:#769fc8;text-align:center;font-size:11px;line-height:1.45;margin:3px 0 0;position:relative;z-index:1}
+@media(min-width:600px){.game{padding-left:30px;padding-right:30px}.dialog-history{gap:15px}.bubble .line{font-size:15px}}
+@media(max-width:350px){.game{padding-left:13px;padding-right:13px}.bubble .line{font-size:13.5px}.game .choice{font-size:13px}.game-top .stage-chip{font-size:9px}}
+
+/* Expanded animated conversational simulator */
+.game{gap:14px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom));overflow:visible}
+.game-top{gap:8px}.game-top .back{white-space:nowrap}.game-top .stage-chip{font-size:10px;padding:9px 10px;letter-spacing:.035em}
+.dialog-kicker{font-size:10px;letter-spacing:.18em;color:#64bdff;font-weight:850;margin-bottom:9px}
+.dialog-head{position:relative;z-index:1}.dialog-head .game-title{margin:0 0 8px;font-size:clamp(29px,8.5vw,39px)}
+.dialog-head .game-sub{font-size:13px;line-height:1.48}
+.call-state{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.call-status{border:1px solid rgba(85,166,252,.25);background:rgba(15,53,105,.48);border-radius:50px;padding:9px 11px;font-weight:650;font-size:12px;display:flex;align-items:center;gap:7px}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#2ce6be;box-shadow:0 0 11px rgba(27,248,186,.8);animation:onlineGlow 2s infinite}
+@keyframes onlineGlow{50%{box-shadow:0 0 2px rgba(27,248,186,.2)}}
+.turn-counter{color:#9ab9ed;font-size:12px;white-space:nowrap}
+.game .progress{margin:0;position:relative;z-index:1}
+.dialog-history{display:flex;flex-direction:column;gap:12px;min-height:120px;position:relative;z-index:1;padding:12px 1px 4px}
+.chat-row{max-width:94%;display:flex;gap:9px;align-items:flex-end;animation:bubbleEnter .24s ease-out both}
+.chat-row.customer{align-self:flex-start}.chat-row.operator{align-self:flex-end;flex-direction:row-reverse}
+.chat-face{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:linear-gradient(135deg,#163c88,#54a6ff);display:grid;place-items:center;color:white;font-size:16px;font-weight:850;box-shadow:0 7px 15px rgba(0,20,55,.3)}
+.chat-face.stepa{background:linear-gradient(145deg,#2454ff,#25c9fa)}
+.chat-face.alisa{background:linear-gradient(145deg,#8658e9,#ee73bf)}
+.chat-face.elena{background:linear-gradient(145deg,#58769f,#65b8d0)}
+.chat-face.operator-face{background:linear-gradient(145deg,#1257a5,#273fff)}
+.bubble{min-width:0;padding:12px 14px;border-radius:19px 19px 19px 6px;border:1px solid rgba(121,176,243,.34);background:linear-gradient(135deg,rgba(30,69,136,.98),rgba(10,36,78,.97));box-shadow:0 8px 25px rgba(0,7,37,.22)}
+.operator .bubble{border-radius:19px 19px 6px 19px;background:linear-gradient(125deg,#1267ca,#284dca);border-color:rgba(147,227,255,.4)}
+.bubble .who{font-size:10px;font-weight:800;letter-spacing:.06em;color:#92ddff;margin-bottom:5px}
+.operator .bubble .who{color:#d6e7ff}
+.bubble .line{font-size:14.5px;line-height:1.49;color:#f6fbff;overflow-wrap:anywhere}
+@keyframes bubbleEnter{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.answer-area{position:relative;z-index:1;margin-top:7px;padding:15px 13px 14px;border:1px solid rgba(88,148,255,.24);background:linear-gradient(160deg,rgba(7,32,79,.95),rgba(4,20,56,.97));border-radius:23px;box-shadow:0 12px 38px rgba(0,0,0,.18)}
+.answer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;letter-spacing:.11em;font-weight:850;color:#85c8ff}
+.answer-dot{color:#59d6ff;font-size:20px}
+.game .choices{gap:9px}
+.game .choice{padding:12px 13px;min-height:64px;background:linear-gradient(110deg,rgba(26,83,161,.85),rgba(9,38,91,.95));border:1px solid rgba(98,175,255,.36);border-radius:15px;font-size:13.5px;line-height:1.36;gap:10px;box-shadow:0 4px 13px rgba(0,0,0,.10)}
+.game .choice .num{width:28px;height:28px;flex-basis:28px;font-size:12px}
+.game .choice .arrow{font-size:23px}
+.game .choice:hover,.person-card:hover{border-color:#56c2ff;box-shadow:0 0 25px rgba(34,116,255,.15)}
+.ending-panel{position:relative;z-index:1;border:1px solid rgba(93,197,255,.4);border-radius:24px;padding:22px 18px;background:linear-gradient(145deg,rgba(18,78,157,.8),rgba(6,29,71,.97));box-shadow:0 15px 44px rgba(0,10,50,.25);animation:bubbleEnter .35s ease-out}
+.ending-panel[hidden]{display:none!important}.ending-burst{font-size:28px;color:#65dcff;margin-bottom:12px;filter:drop-shadow(0 0 9px #398fff)}
+.ending-type{font-size:11px;font-weight:900;letter-spacing:.14em;color:#9bd5ff}.ending-panel h2{margin:9px 0 12px;font-size:26px;letter-spacing:-.035em;line-height:1.14}.ending-panel p{font-size:14px;line-height:1.55;color:#c9dcf6;margin:0 0 19px}
+.ending-actions{display:flex;flex-direction:column;gap:9px}.ending-actions button{min-height:53px;border-radius:15px;padding:10px 13px;color:white;font-size:14px;font-weight:750}
+.ending-primary{border:1px solid #77caff;background:linear-gradient(110deg,#1b9fff,#2858ef);box-shadow:0 7px 24px rgba(15,109,255,.29)}
+.ending-secondary{border:1px solid rgba(131,199,255,.30);background:rgba(22,71,140,.45)}
+.ending-panel[data-tone="neutral"]{border-color:rgba(163,168,255,.38)}.ending-panel[data-tone="neutral"] .ending-burst{color:#c6bcff}
+.ending-panel[data-tone="bad"]{border-color:rgba(255,133,161,.43)}.ending-panel[data-tone="bad"] .ending-burst{color:#ff8cac}
+.game-footnote{color:#769fc8;text-align:center;font-size:11px;line-height:1.45;margin:3px 0 0;position:relative;z-index:1}
+@media(min-width:600px){.game{padding-left:30px;padding-right:30px}.dialog-history{gap:15px}.bubble .line{font-size:15px}}
+@media(max-width:350px){.game{padding-left:13px;padding-right:13px}.bubble .line{font-size:13.5px}.game .choice{font-size:13px}.game-top .stage-chip{font-size:9px}}
+
+/* Expanded animated conversational simulator */
+.game{gap:14px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom));overflow:visible}
+.game-top{gap:8px}.game-top .back{white-space:nowrap}.game-top .stage-chip{font-size:10px;padding:9px 10px;letter-spacing:.035em}
+.dialog-kicker{font-size:10px;letter-spacing:.18em;color:#64bdff;font-weight:850;margin-bottom:9px}
+.dialog-head{position:relative;z-index:1}.dialog-head .game-title{margin:0 0 8px;font-size:clamp(29px,8.5vw,39px)}
+.dialog-head .game-sub{font-size:13px;line-height:1.48}
+.call-state{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.call-status{border:1px solid rgba(85,166,252,.25);background:rgba(15,53,105,.48);border-radius:50px;padding:9px 11px;font-weight:650;font-size:12px;display:flex;align-items:center;gap:7px}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#2ce6be;box-shadow:0 0 11px rgba(27,248,186,.8);animation:onlineGlow 2s infinite}
+@keyframes onlineGlow{50%{box-shadow:0 0 2px rgba(27,248,186,.2)}}
+.turn-counter{color:#9ab9ed;font-size:12px;white-space:nowrap}
+.game .progress{margin:0;position:relative;z-index:1}
+.dialog-history{display:flex;flex-direction:column;gap:12px;min-height:120px;position:relative;z-index:1;padding:12px 1px 4px}
+.chat-row{max-width:94%;display:flex;gap:9px;align-items:flex-end;animation:bubbleEnter .24s ease-out both}
+.chat-row.customer{align-self:flex-start}.chat-row.operator{align-self:flex-end;flex-direction:row-reverse}
+.chat-face{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:linear-gradient(135deg,#163c88,#54a6ff);display:grid;place-items:center;color:white;font-size:16px;font-weight:850;box-shadow:0 7px 15px rgba(0,20,55,.3)}
+.chat-face.stepa{background:linear-gradient(145deg,#2454ff,#25c9fa)}
+.chat-face.alisa{background:linear-gradient(145deg,#8658e9,#ee73bf)}
+.chat-face.elena{background:linear-gradient(145deg,#58769f,#65b8d0)}
+.chat-face.operator-face{background:linear-gradient(145deg,#1257a5,#273fff)}
+.bubble{min-width:0;padding:12px 14px;border-radius:19px 19px 19px 6px;border:1px solid rgba(121,176,243,.34);background:linear-gradient(135deg,rgba(30,69,136,.98),rgba(10,36,78,.97));box-shadow:0 8px 25px rgba(0,7,37,.22)}
+.operator .bubble{border-radius:19px 19px 6px 19px;background:linear-gradient(125deg,#1267ca,#284dca);border-color:rgba(147,227,255,.4)}
+.bubble .who{font-size:10px;font-weight:800;letter-spacing:.06em;color:#92ddff;margin-bottom:5px}
+.operator .bubble .who{color:#d6e7ff}
+.bubble .line{font-size:14.5px;line-height:1.49;color:#f6fbff;overflow-wrap:anywhere}
+@keyframes bubbleEnter{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.answer-area{position:relative;z-index:1;margin-top:7px;padding:15px 13px 14px;border:1px solid rgba(88,148,255,.24);background:linear-gradient(160deg,rgba(7,32,79,.95),rgba(4,20,56,.97));border-radius:23px;box-shadow:0 12px 38px rgba(0,0,0,.18)}
+.answer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;letter-spacing:.11em;font-weight:850;color:#85c8ff}
+.answer-dot{color:#59d6ff;font-size:20px}
+.game .choices{gap:9px}
+.game .choice{padding:12px 13px;min-height:64px;background:linear-gradient(110deg,rgba(26,83,161,.85),rgba(9,38,91,.95));border:1px solid rgba(98,175,255,.36);border-radius:15px;font-size:13.5px;line-height:1.36;gap:10px;box-shadow:0 4px 13px rgba(0,0,0,.10)}
+.game .choice .num{width:28px;height:28px;flex-basis:28px;font-size:12px}
+.game .choice .arrow{font-size:23px}
+.game .choice:hover,.person-card:hover{border-color:#56c2ff;box-shadow:0 0 25px rgba(34,116,255,.15)}
+.ending-panel{position:relative;z-index:1;border:1px solid rgba(93,197,255,.4);border-radius:24px;padding:22px 18px;background:linear-gradient(145deg,rgba(18,78,157,.8),rgba(6,29,71,.97));box-shadow:0 15px 44px rgba(0,10,50,.25);animation:bubbleEnter .35s ease-out}
+.ending-panel[hidden]{display:none!important}.ending-burst{font-size:28px;color:#65dcff;margin-bottom:12px;filter:drop-shadow(0 0 9px #398fff)}
+.ending-type{font-size:11px;font-weight:900;letter-spacing:.14em;color:#9bd5ff}.ending-panel h2{margin:9px 0 12px;font-size:26px;letter-spacing:-.035em;line-height:1.14}.ending-panel p{font-size:14px;line-height:1.55;color:#c9dcf6;margin:0 0 19px}
+.ending-actions{display:flex;flex-direction:column;gap:9px}.ending-actions button{min-height:53px;border-radius:15px;padding:10px 13px;color:white;font-size:14px;font-weight:750}
+.ending-primary{border:1px solid #77caff;background:linear-gradient(110deg,#1b9fff,#2858ef);box-shadow:0 7px 24px rgba(15,109,255,.29)}
+.ending-secondary{border:1px solid rgba(131,199,255,.30);background:rgba(22,71,140,.45)}
+.ending-panel[data-tone="neutral"]{border-color:rgba(163,168,255,.38)}.ending-panel[data-tone="neutral"] .ending-burst{color:#c6bcff}
+.ending-panel[data-tone="bad"]{border-color:rgba(255,133,161,.43)}.ending-panel[data-tone="bad"] .ending-burst{color:#ff8cac}
+.game-footnote{color:#769fc8;text-align:center;font-size:11px;line-height:1.45;margin:3px 0 0;position:relative;z-index:1}
+@media(min-width:600px){.game{padding-left:30px;padding-right:30px}.dialog-history{gap:15px}.bubble .line{font-size:15px}}
+@media(max-width:350px){.game{padding-left:13px;padding-right:13px}.bubble .line{font-size:13.5px}.game .choice{font-size:13px}.game-top .stage-chip{font-size:9px}}
+
+/* Expanded animated conversational simulator */
+.game{gap:14px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:calc(22px + env(safe-area-inset-bottom));overflow:visible}
+.game-top{gap:8px}.game-top .back{white-space:nowrap}.game-top .stage-chip{font-size:10px;padding:9px 10px;letter-spacing:.035em}
+.dialog-kicker{font-size:10px;letter-spacing:.18em;color:#64bdff;font-weight:850;margin-bottom:9px}
+.dialog-head{position:relative;z-index:1}.dialog-head .game-title{margin:0 0 8px;font-size:clamp(29px,8.5vw,39px)}
+.dialog-head .game-sub{font-size:13px;line-height:1.48}
+.call-state{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.call-status{border:1px solid rgba(85,166,252,.25);background:rgba(15,53,105,.48);border-radius:50px;padding:9px 11px;font-weight:650;font-size:12px;display:flex;align-items:center;gap:7px}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#2ce6be;box-shadow:0 0 11px rgba(27,248,186,.8);animation:onlineGlow 2s infinite}
+@keyframes onlineGlow{50%{box-shadow:0 0 2px rgba(27,248,186,.2)}}
+.turn-counter{color:#9ab9ed;font-size:12px;white-space:nowrap}
+.game .progress{margin:0;position:relative;z-index:1}
+.dialog-history{display:flex;flex-direction:column;gap:12px;min-height:120px;position:relative;z-index:1;padding:12px 1px 4px}
+.chat-row{max-width:94%;display:flex;gap:9px;align-items:flex-end;animation:bubbleEnter .24s ease-out both}
+.chat-row.customer{align-self:flex-start}.chat-row.operator{align-self:flex-end;flex-direction:row-reverse}
+.chat-face{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:linear-gradient(135deg,#163c88,#54a6ff);display:grid;place-items:center;color:white;font-size:16px;font-weight:850;box-shadow:0 7px 15px rgba(0,20,55,.3)}
+.chat-face.stepa{background:linear-gradient(145deg,#2454ff,#25c9fa)}
+.chat-face.alisa{background:linear-gradient(145deg,#8658e9,#ee73bf)}
+.chat-face.elena{background:linear-gradient(145deg,#58769f,#65b8d0)}
+.chat-face.operator-face{background:linear-gradient(145deg,#1257a5,#273fff)}
+.bubble{min-width:0;padding:12px 14px;border-radius:19px 19px 19px 6px;border:1px solid rgba(121,176,243,.34);background:linear-gradient(135deg,rgba(30,69,136,.98),rgba(10,36,78,.97));box-shadow:0 8px 25px rgba(0,7,37,.22)}
+.operator .bubble{border-radius:19px 19px 6px 19px;background:linear-gradient(125deg,#1267ca,#284dca);border-color:rgba(147,227,255,.4)}
+.bubble .who{font-size:10px;font-weight:800;letter-spacing:.06em;color:#92ddff;margin-bottom:5px}
+.operator .bubble .who{color:#d6e7ff}
+.bubble .line{font-size:14.5px;line-height:1.49;color:#f6fbff;overflow-wrap:anywhere}
+@keyframes bubbleEnter{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.answer-area{position:relative;z-index:1;margin-top:7px;padding:15px 13px 14px;border:1px solid rgba(88,148,255,.24);background:linear-gradient(160deg,rgba(7,32,79,.95),rgba(4,20,56,.97));border-radius:23px;box-shadow:0 12px 38px rgba(0,0,0,.18)}
+.answer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;letter-spacing:.11em;font-weight:850;color:#85c8ff}
+.answer-dot{color:#59d6ff;font-size:20px}
+.game .choices{gap:9px}
+.game .choice{padding:12px 13px;min-height:64px;background:linear-gradient(110deg,rgba(26,83,161,.85),rgba(9,38,91,.95));border:1px solid rgba(98,175,255,.36);border-radius:15px;font-size:13.5px;line-height:1.36;gap:10px;box-shadow:0 4px 13px rgba(0,0,0,.10)}
+.game .choice .num{width:28px;height:28px;flex-basis:28px;font-size:12px}
+.game .choice .arrow{font-size:23px}
+.game .choice:hover,.person-card:hover{border-color:#56c2ff;box-shadow:0 0 25px rgba(34,116,255,.15)}
+.ending-panel{position:relative;z-index:1;border:1px solid rgba(93,197,255,.4);border-radius:24px;padding:22px 18px;background:linear-gradient(145deg,rgba(18,78,157,.8),rgba(6,29,71,.97));box-shadow:0 15px 44px rgba(0,10,50,.25);animation:bubbleEnter .35s ease-out}
+.ending-panel[hidden]{display:none!important}.ending-burst{font-size:28px;color:#65dcff;margin-bottom:12px;filter:drop-shadow(0 0 9px #398fff)}
+.ending-type{font-size:11px;font-weight:900;letter-spacing:.14em;color:#9bd5ff}.ending-panel h2{margin:9px 0 12px;font-size:26px;letter-spacing:-.035em;line-height:1.14}.ending-panel p{font-size:14px;line-height:1.55;color:#c9dcf6;margin:0 0 19px}
+.ending-actions{display:flex;flex-direction:column;gap:9px}.ending-actions button{min-height:53px;border-radius:15px;padding:10px 13px;color:white;font-size:14px;font-weight:750}
+.ending-primary{border:1px solid #77caff;background:linear-gradient(110deg,#1b9fff,#2858ef);box-shadow:0 7px 24px rgba(15,109,255,.29)}
+.ending-secondary{border:1px solid rgba(131,199,255,.30);background:rgba(22,71,140,.45)}
+.ending-panel[data-tone="neutral"]{border-color:rgba(163,168,255,.38)}.ending-panel[data-tone="neutral"] .ending-burst{color:#c6bcff}
+.ending-panel[data-tone="bad"]{border-color:rgba(255,133,161,.43)}.ending-panel[data-tone="bad"] .ending-burst{color:#ff8cac}
+.game-footnote{color:#769fc8;text-align:center;font-size:11px;line-height:1.45;margin:3px 0 0;position:relative;z-index:1}
+@media(min-width:600px){.game{padding-left:30px;padding-right:30px}.dialog-history{gap:15px}.bubble .line{font-size:15px}}
+@media(max-width:350px){.game{padding-left:13px;padding-right:13px}.bubble .line{font-size:13.5px}.game .choice{font-size:13px}.game-top .stage-chip{font-size:9px}}
 </style>
 </head>
 <body>
@@ -152,15 +336,15 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
   </div>
   <p class="note-line">Можно пройти все три сценария и сравнить, как меняется логика диалога.</p>
  </section>
- <section class="game screen" id="game" hidden aria-label="Сценарий клиента">
-  <header class="game-top"><button class="back" id="backToChoose" type="button"><span aria-hidden="true">←</span> К выбору клиента</button><span class="stage-chip" id="gameChip">СЦЕНАРИЙ</span></header>
-  <div><h1 class="game-title" id="gameTitle">Клиент <em>на линии.</em></h1><p class="game-sub" id="gameSub">Ты выбрал клиента. Теперь всё зависит от того, как поведёшь разговор.</p></div>
-  <div class="client-chip" id="clientChip">Клиент выбран</div>
-  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
-  <div class="character"><div class="avatar" aria-hidden="true"></div><div><strong id="speaker">Клиент на линии</strong><span id="hint">Новая ситуация</span></div></div>
-  <div class="chat" aria-live="polite"><p id="speech"></p><small id="context"></small></div>
-  <div class="prompt" id="prompt">Что ты выберешь?</div><div class="choices" id="choices"></div>
-  <p class="footer" id="footer">Выбирай действия и смотри, к чему они приводят.</p>
+ <section class="game screen" id="game" hidden aria-label="Диалог с клиентом">
+  <header class="game-top"><button class="back" id="backToChoose" type="button"><span aria-hidden="true">←</span> Персонажи</button><span class="stage-chip" id="gameChip">ДИАЛОГ</span></header>
+  <div class="dialog-head"><div class="dialog-kicker">ТВОЙ КЛИЕНТ · ИНТЕРАКТИВ</div><h1 class="game-title" id="gameTitle">Клиент <em>на линии.</em></h1><p class="game-sub" id="gameSub"></p></div>
+  <div class="call-state"><div class="call-status"><i class="online-dot" aria-hidden="true"></i><span id="clientChip">Клиент на связи</span></div><span class="turn-counter" id="turnCounter">Раунд 1</span></div>
+  <div class="progress" aria-label="Прогресс разговора"><span id="progressFill"></span></div>
+  <div class="dialog-history" id="dialogueLog" role="log" aria-label="История разговора" aria-live="polite" aria-relevant="additions"></div>
+  <div class="answer-area" id="answerArea"><div class="answer-title"><span id="prompt">ТВОЯ РЕПЛИКА</span><span class="answer-dot" aria-hidden="true">✦</span></div><div class="choices" id="choices"></div></div>
+  <div class="ending-panel" id="endingPanel" hidden><div class="ending-burst" id="endingIcon" aria-hidden="true">✦</div><div class="ending-type" id="endingType">ФИНАЛ</div><h2 id="endingTitle"></h2><p id="endingLesson"></p><div class="ending-actions"><button class="ending-primary" id="restart" type="button">↻ Пройти ещё раз</button><button class="ending-secondary" id="anotherClient" type="button">Выбрать другого клиента</button></div></div>
+  <p class="game-footnote" id="footer">Ситуации учебные. Актуальные условия и предложения всегда нужно проверять.</p>
  </section>
 </main>
 <script>
@@ -172,78 +356,85 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
  updateViewportHeight();
  window.addEventListener('resize',updateViewportHeight,{passive:true});
  if(window.visualViewport)window.visualViewport.addEventListener('resize',updateViewportHeight,{passive:true});
- const home=document.getElementById('home');
- const choose=document.getElementById('choose');
- const game=document.getElementById('game');
- const choices=document.getElementById('choices');
- const speech=document.getElementById('speech');
- const speaker=document.getElementById('speaker');
- const hint=document.getElementById('hint');
- const context=document.getElementById('context');
- const progressFill=document.getElementById('progressFill');
- const prompt=document.getElementById('prompt');
- const gameChip=document.getElementById('gameChip');
- const gameTitle=document.getElementById('gameTitle');
- const gameSub=document.getElementById('gameSub');
- const clientChip=document.getElementById('clientChip');
- const clientMeta={
-  stepa:{name:'Степа, 20 лет', chip:'СЦЕНАРИЙ · СТЕПА', title:'Степа <em>на линии.</em>', subtitle:'Молодой клиент. Любит технику и онлайн-покупки. Ему важно увидеть конкретную выгоду, а не услышать общий перечень преимуществ.'},
-  alisa:{name:'Алиса, 34 года', chip:'СЦЕНАРИЙ · АЛИСА', title:'Алиса <em>на линии.</em>', subtitle:'Практичный клиент. У неё семья и повседневные траты. Лучше всего работают понятные жизненные сценарии без лишней воды.'},
-  elena:{name:'Елена Петровна, 60 лет', chip:'СЦЕНАРИЙ · ЕЛЕНА ПЕТРОВНА', title:'Елена Петровна <em>на линии.</em>', subtitle:'Клиенту важны простота, доверие и спокойный темп. Здесь особенно важно объяснять без сложных терминов и давления.'}
- };
- const scenarios={
-  stepa:{
-   opening:{p:14,s:'Степа, 20 лет',h:'Скепсис',q:'Я обычно всё оплачиваю своей картой. Зачем мне ещё Халва?',tip:'Степа пока не понимает, в чём для него личная польза.',choices:[['Сказать, что Халва нужна вообще всем','pushy'],['Спросить, на что он обычно тратит деньги онлайн','needs']]},
-   pushy:{p:36,s:'Степа, 20 лет',h:'Интерес снижается',q:'Если честно, звучит как ещё одна обычная карта. Тогда мне не очень интересно.',tip:'Общие фразы не сработали: клиент не увидел связи со своей жизнью.',choices:[['Попробовать выяснить его реальные покупки','needs'],['Завершить разговор','endCold']]},
-   needs:{p:56,s:'Степа, 20 лет',h:'Контекст найден',q:'Ну, в основном заказываю технику, подписки и иногда одежду.',tip:'Теперь можно перевести разговор в конкретный сценарий использования.',choices:[['Показать, как карта может быть полезна в знакомых категориях покупок','endGood'],['Сразу пообещать максимально выгодные условия без уточнений','endRisk']]},
-   endGood:{p:100,s:'Результат',h:'Хороший ход',q:'Окей, если можно использовать это в моих обычных покупках, уже интереснее.',tip:'Ты связал продукт с понятными для клиента тратами и не обещал лишнего. Это усиливает интерес.',choices:[['Пройти ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endRisk:{p:100,s:'Результат',h:'Слишком громкое обещание',q:'А если по факту условия окажутся не такими, как вы сейчас говорите?',tip:'Степа быстро замечает преувеличения. Без проверки условий доверие снижается.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endCold:{p:100,s:'Результат',h:'Разговор закончился',q:'Нет, спасибо. Мне не нужна ещё одна карта.',tip:'Клиент не понял, зачем ему продукт именно сейчас. Лучше начинать с его привычек и потребностей.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]}
-  },
-  alisa:{
-   opening:{p:14,s:'Алиса, 34 года',h:'Спешка',q:'У меня нет времени разбираться в новых картах. Если честно, мне сейчас не до этого.',tip:'Алиса не хочет длинную презентацию. Ей нужен быстрый, понятный и жизненный смысл.',choices:[['Начать подробно перечислять все преимущества Халвы','details'],['Коротко уточнить, на каких регулярных тратах ей могла бы пригодиться карта','daily']]},
-   details:{p:34,s:'Алиса, 34 года',h:'Перегрузка',q:'Подождите, слишком много информации. Я всё равно не понимаю, зачем мне это сейчас.',tip:'Слишком детальная презентация в начале вызывает усталость и отталкивает.',choices:[['Свернуть разговор к одной жизненной ситуации','daily'],['Попрощаться','endCold']]},
-   daily:{p:58,s:'Алиса, 34 года',h:'Есть зацепка',q:'Ну, у меня семья, продукты, детские вещи, бытовые покупки — всё как у всех.',tip:'Отлично: теперь можно показать Халву как инструмент для повседневных задач.',choices:[['Показать один конкретный и понятный сценарий пользы без перегруза','endGood'],['Сразу перевести разговор в «оформим прямо сейчас?»','endPush']]},
-   endGood:{p:100,s:'Результат',h:'Понятно и по делу',q:'Вот так уже понятнее. Если это реально помогает в обычных расходах, можно посмотреть.',tip:'Для Алисы сработал короткий, бытовой и понятный пример вместо длинной презентации.',choices:[['Пройти ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endPush:{p:100,s:'Результат',h:'Слишком рано продавать',q:'Подождите, я ещё не поняла, зачем она мне, а вы уже предлагаете оформлять.',tip:'Даже если клиент заинтересовался, нельзя перепрыгивать через этап понимания ценности.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endCold:{p:100,s:'Результат',h:'Интерес не появился',q:'Нет, спасибо, мне сейчас неудобно это обсуждать.',tip:'Алисе не хватило быстрого и приземлённого объяснения. Ей важен лаконичный подход.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]}
-  },
-  elena:{
-   opening:{p:14,s:'Елена Петровна, 60 лет',h:'Осторожность',q:'Я с такими картами не очень дружу. Боюсь запутаться и потом что-то не так понять.',tip:'Для Елены Петровны на первом месте — доверие, простота и ощущение безопасности.',choices:[['Сразу использовать банковские термины и рассказывать про продукт “как есть”','terms'],['Спокойно объяснить простыми словами и уточнить, какие покупки ей привычны','simple']]},
-   terms:{p:34,s:'Елена Петровна, 60 лет',h:'Тревога растёт',q:'Ой, нет, это слишком сложно звучит. Наверное, мне такое не подойдёт.',tip:'Сложные формулировки усиливают тревогу и уменьшают доверие.',choices:[['Перейти на простое человеческое объяснение','simple'],['Завершить разговор','endCold']]},
-   simple:{p:56,s:'Елена Петровна, 60 лет',h:'Контакт установлен',q:'Ну, чаще всего аптека, дом, какие-то обычные покупки. Если просто объясните, я готова послушать.',tip:'Теперь лучше говорить мягко, без давления и только через знакомые сценарии.',choices:[['Показать пользу на спокойном бытовом примере и не торопить','endGood'],['Сразу настаивать на быстром оформлении, пока клиент слушает','endPush']]},
-   endGood:{p:100,s:'Результат',h:'Появилось доверие',q:'Если всё действительно так спокойно и понятно, тогда я бы хотела узнать подробнее.',tip:'Ты выбрал верный тон: простое объяснение и уважение к темпу клиента помогают удержать интерес.',choices:[['Пройти ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endPush:{p:100,s:'Результат',h:'Слишком сильное давление',q:'Нет-нет, я не люблю, когда меня торопят. Спасибо, мне лучше не надо.',tip:'Для такого клиента особенно важно не давить. Сначала доверие, потом предложение следующего шага.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]},
-   endCold:{p:100,s:'Результат',h:'Разговор не сложился',q:'Спасибо, но я всё-таки откажусь.',tip:'Тон оказался слишком сложным или быстрым. Попробуй заново — проще и спокойнее.',choices:[['Попробовать ещё раз ↻','opening'],['Выбрать другого клиента','CHOOSE'],['На главную','HOME']]}
-  }
- };
- let currentClient=null;
- function show(screen){home.hidden=screen!=='home';choose.hidden=screen!=='choose';game.hidden=screen!=='game';window.scrollTo({top:0,behavior:'instant'});}
- function showHome(){show('home');history.replaceState({screen:'home'},'',location.pathname+location.search);}
- function showChoose(){show('choose');history.replaceState({screen:'choose'},'',location.pathname+location.search+'#choose');}
- function startClient(client){currentClient=client;const meta=clientMeta[client];gameChip.textContent=meta.chip;gameTitle.innerHTML=meta.title;gameSub.textContent=meta.subtitle;clientChip.textContent=meta.name;show('game');render('opening');history.replaceState({screen:'game',client},'',location.pathname+location.search+'#'+client);}
- function render(id){
-  if(id==='HOME'){showHome();return}
-  if(id==='CHOOSE'){showChoose();return}
-  const n=scenarios[currentClient]?.[id]; if(!n) return;
-  speech.textContent=n.q;speaker.textContent=n.s;hint.textContent=n.h;context.textContent=n.tip;
-  prompt.textContent=n.p===100?'Что дальше?':'Что ты выберешь?';
-  progressFill.style.width=n.p+'%';
-  choices.replaceChildren();
-  n.choices.forEach(([label,next],index)=>{
-   const button=document.createElement('button');button.type='button';button.className='choice';
-   const number=document.createElement('span');number.className='num';number.textContent=String.fromCharCode(65+index);
-   const description=document.createElement('span');description.textContent=label;description.style.flex='1';
-   const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='›';arrow.setAttribute('aria-hidden','true');
-   button.append(number,description,arrow);button.addEventListener('click',()=>render(next));choices.append(button);
-  });
+ const $=id=>document.getElementById(id);
+ const home=$('home'),choose=$('choose'),game=$('game');
+ const log=$('dialogueLog'),choices=$('choices'),endingPanel=$('endingPanel');
+ const story={"stepa":{"meta":{"name":"Степа","age":"20 лет","tone":"Онлайн-покупки · техника · скепсис","title":"Стёпа на линии","intro":"Он уверен, что ещё одна карта ему не нужна. Убедить общими фразами не получится."},"nodes":{"start":{"line":"Слушаю. Только сразу: у меня уже есть карта с бонусами. Зачем мне ещё одна?","stage":"Первый контакт","choices":[{"say":"Понимаю. А на что чаще всего тратишь деньги с карты?","next":"habits"},{"say":"Халва точно лучше твоей карты. Давай расскажу почему.","next":"challenge"},{"say":"Могу за минуту объяснить идею, а ты сам решишь, интересно или нет?","next":"concept"}]},"concept":{"line":"Ну, давай. Только без длинной рекламы.","stage":"Нужна конкретика","choices":[{"say":"Смысл в том, что для некоторых покупок доступны условия рассрочки у партнёров. Давай проверим, актуально ли это тебе.","next":"habits"},{"say":"Тебе дадут кэшбэк буквально за всё, причём больше, чем сейчас.","next":"claim"}]},"challenge":{"line":"Лучше — это как? Ты даже не знаешь, какой картой я пользуюсь.","stage":"Клиент проверяет аргументы","choices":[{"say":"Справедливо, поспешил. Подскажи, что обычно покупаешь — сравним без обещаний.","next":"habits"},{"say":"Поверь, она выгодная для всех. Надо просто попробовать.","next":"push"}]},"habits":{"line":"Да по-разному: маркетплейсы, наушники, иногда одежда. А сейчас коплю на телефон.","stage":"Появилась потребность","choices":[{"say":"Телефон — уже конкретнее. Когда планируешь покупать и где смотришь?","next":"phone"},{"say":"А на какой размер кэшбэка ты привык рассчитывать?","next":"bonus"},{"say":"Тогда оформим Халву, а применение найдёшь потом.","next":"push"}]},"bonus":{"line":"На моей карте бонусы иногда нормальные. Зачем мне менять привычную схему?","stage":"Клиент сравнивает","choices":[{"say":"Менять её необязательно. Для покупки телефона можно сравнить условия двух вариантов.","next":"phone"},{"say":"Твоя карта точно хуже, даже сравнивать нечего.","next":"challenge2"}]},"challenge2":{"line":"Опять «точно». А на чём основан такой вывод?","stage":"Доверие под вопросом","choices":[{"say":"Ты прав: без условий твоей карты я этого не знаю. Предлагаю сравнить на конкретной покупке.","next":"phone"},{"say":"Не хочешь — не надо.","next":"end_lost"}]},"phone":{"line":"Через месяц, наверное. Хочу телефон тысяч за сорок. Но переплачивать не хочу.","stage":"Покупка на горизонте","choices":[{"say":"Тогда сначала выясним, есть ли нужный магазин среди партнёров и какие там условия.","next":"partner"},{"say":"Тогда рассрочка точно будет на год и без переплаты.","next":"claim"},{"say":"А не проще просто копить, если покупка не срочная?","next":"saving"}]},"saving":{"line":"Может, и проще. Я пока вообще не решил, нужен ли новый.","stage":"Не нужно торопить","choices":[{"say":"Это разумно. Пока можешь не брать ничего; если решишься, сравним варианты.","next":"end_respect"},{"say":"Но всё равно бери карту заранее, пригодится.","next":"push"}]},"partner":{"line":"А если в моём магазине Халва не работает?","stage":"Неудобный вопрос","choices":[{"say":"Тогда не будем придумывать выгоду. Проверим магазин и доступные условия, а потом сравним.","next":"conditions"},{"say":"В любом магазине всё равно получишь рассрочку на тех же условиях.","next":"claim"}]},"conditions":{"line":"Окей. А как вообще понять, сколько я буду платить каждый месяц?","stage":"Вопрос про платежи","choices":[{"say":"Нужно посмотреть конкретное предложение: срок, платежи и возможные дополнительные условия до покупки.","next":"monthly"},{"say":"Просто раздели цену на двенадцать — всё всегда так работает.","next":"claim"}]},"monthly":{"line":"Нормально. А если я уже коплю, может, мне рассрочка вообще не нужна?","stage":"Право отказаться","choices":[{"say":"Возможно. Можно сравнить оба сценария и выбрать тот, который комфортен по бюджету.","next":"decision"},{"say":"Она нужна всем, потому что можно не тратить свои деньги.","next":"push"}]},"decision":{"line":"Звучит адекватно. Где тогда смотреть реальные предложения?","stage":"Готов посмотреть","choices":[{"say":"Покажу официальный способ проверить партнёров и условия, без обещаний заочно.","next":"end_warm"},{"say":"Сначала обязательно оформи карту, потом разберёмся.","next":"push"}]},"push":{"line":"Слушай, ты меня как будто не слышишь. Я же сказал, что не собираюсь ничего оформлять прямо сейчас.","stage":"Клиент закрывается","choices":[{"say":"Понял тебя. Не буду настаивать. Если появится задача — можно вернуться к сравнению условий.","next":"end_respect"},{"say":"Но предложение же выгодное, зачем отказываться?","next":"end_lost"}]},"claim":{"line":"Подожди. Ты обещаешь условия, даже не спросив магазин. Откуда уверенность?","stage":"Проверка честности","choices":[{"say":"Ты прав, это было некорректно. Давай сверим официальные условия перед выводами.","next":"partner"},{"say":"Я уверен, всё так и будет.","next":"end_risk"}]},"end_warm":{"line":"Пришли, пожалуйста, где посмотреть. Сам проверю магазин, и если подойдёт — вернусь к вопросу.","stage":"","choices":[],"ending":"good","lesson":"Ты выяснил реальную покупку и предложил проверить условия, а не оформить карту любой ценой."},"end_respect":{"line":"Спасибо, что без давления. Если соберусь покупать — тогда и посмотрю.","stage":"","choices":[],"ending":"neutral","lesson":"Клиент пока не готов — и это нормально. Ты сохранил доверие и оставил возможность вернуться к теме."},"end_risk":{"line":"Нет, спасибо. Я не люблю, когда мне обещают то, что никто не проверил.","stage":"","choices":[],"ending":"bad","lesson":"Обещание конкретных условий без проверки разрушило доверие. Лучше признать неопределённость."},"end_lost":{"line":"Нет, всё. Мне неинтересно продолжать.","stage":"","choices":[],"ending":"bad","lesson":"Давление и общие утверждения вытеснили потребность клиента. Стоило сначала понять его ситуацию."}}},"alisa":{"meta":{"name":"Алиса","age":"34 года","tone":"Семья · бытовые расходы · мало времени","title":"Алиса на линии","intro":"Она торопится и не хочет слушать заученный скрипт. Твоя задача — быстро понять, есть ли смысл продолжать."},"nodes":{"start":{"line":"Здравствуйте. У меня буквально минута, я на работе. Что вы хотели?","stage":"У Алисы мало времени","choices":[{"say":"Понимаю. Один короткий вопрос: какие покупки сейчас для вас самые затратные?","next":"expenses"},{"say":"Сейчас расскажу обо всех возможностях Халвы — это займёт пару минут.","next":"long"},{"say":"Если неудобно, можем не продолжать. Когда будет комфортно обсудить?","next":"callback"}]},"callback":{"line":"Вечером, возможно, но я не обещаю.","stage":"Уважение к времени","choices":[{"say":"Хорошо. Тогда не отвлекаю; вернёмся к разговору только если вам будет удобно.","next":"end_respect"},{"say":"Давайте всё-таки оформим сейчас, это очень быстро.","next":"push"}]},"long":{"line":"Я же сказала, что у меня минута. Мне не нужен целый список функций.","stage":"Клиент раздражён","choices":[{"say":"Вы правы. Коротко: есть ли сейчас крупная покупка, которую планируете?","next":"big"},{"say":"Если дослушаете, точно передумаете.","next":"push"}]},"expenses":{"line":"Продукты, дети, бытовая химия. А ещё стиральную машину скоро придётся менять.","stage":"Нашли задачи","choices":[{"say":"Стиральная машина — понятная задача. Уже выбрали магазин или модель?","next":"washer"},{"say":"В магазинах вы точно будете экономить на каждой покупке.","next":"promise"},{"say":"А регулярные продукты где чаще покупаете?","next":"groceries"}]},"big":{"line":"Как раз стиральная машина сломалась, но покупать сейчас не очень удобно.","stage":"Техника вместо скрипта","choices":[{"say":"Вы уже смотрели варианты? Можем проверить предложения у партнёров и платежи.","next":"washer"},{"say":"Тогда вам срочно нужна ещё одна карта.","next":"push"}]},"groceries":{"line":"Обычно в супермаркете около дома. Но кредит на продукты мне точно не нужен.","stage":"Осторожность с долгом","choices":[{"say":"Понимаю. Не предлагаю брать продукты в долг. Давайте лучше про технику, если актуально.","next":"washer"},{"say":"А почему нет? Можно оплачивать всё кредитными средствами.","next":"push"}]},"washer":{"line":"Да, смотрю несколько моделей. Меня только пугает, что потом платежи окажутся больше, чем обещали.","stage":"Вопрос о переплате","choices":[{"say":"Это важно. До решения нужно проверить условия по конкретной покупке: сроки, суммы и дополнительные расходы.","next":"terms"},{"say":"Не переживайте, никаких дополнительных условий точно не будет.","next":"promise"},{"say":"Может, вам пока лучше обойтись без покупки?","next":"no_buy"}]},"no_buy":{"line":"Без машины с двумя детьми сложно. Но влезать в лишние обязательства тоже не хочу.","stage":"Потребность есть, но риск тоже","choices":[{"say":"Тогда сравним покупку сейчас и позже, а решение останется за вами.","next":"terms"},{"say":"С такой ситуацией точно надо оформлять карту.","next":"push"}]},"terms":{"line":"Хорошо. Но если я найду такой же товар дешевле не у партнёра?","stage":"Сравнение цен","choices":[{"say":"И это нужно сравнить. Если общая стоимость где-то ниже, не будем делать вид, что Халва выгоднее.","next":"compare"},{"say":"Неважно, где цена ниже. С Халвой всё равно выгоднее.","next":"promise"}]},"compare":{"line":"Это уже похоже на нормальный совет. Только я точно не готова ничего оформлять по телефону.","stage":"Не готова к оформлению","choices":[{"say":"И не нужно прямо сейчас. Можно сначала самостоятельно ознакомиться с официальными условиями.","next":"contact"},{"say":"А если сейчас не оформите, можете потерять выгоду.","next":"push"}]},"contact":{"line":"А много времени займёт разобраться? Я не хочу разбирать десять страниц условий.","stage":"Нужна простота","choices":[{"say":"Начните с конкретной покупки: партнёр, сумма, срок, итоговые платежи. Остальное изучите до решения.","next":"final_question"},{"say":"Да там читать почти нечего, просто соглашайтесь.","next":"promise"}]},"final_question":{"line":"Пожалуй, я посмотрю. Но если условий не подойдёт, просто оставлю как есть.","stage":"Готова изучить","choices":[{"say":"И правильно. Если будет полезно — рассмотрите, если нет — ничего не меняете.","next":"end_warm"},{"say":"Давайте лучше сразу заявку создадим — так надёжнее.","next":"end_push"}]},"push":{"line":"Нет, мне не подходит такой напор. Я сказала, что хочу сначала понять условия.","stage":"Раздражение","choices":[{"say":"Извините, я поторопился. Тогда не будем продолжать без вашего согласия.","next":"end_respect"},{"say":"Но это буквально минутка, не отказывайтесь.","next":"end_push"}]},"promise":{"line":"Вы так уверенно обещаете выгоду. А где можно проверить, что всё именно так?","stage":"Важна прозрачность","choices":[{"say":"Вы правы, нужно проверить актуальные условия, а не обещать результат заранее.","next":"terms"},{"say":"Это стандартные условия, вы зря переживаете.","next":"end_push"}]},"end_warm":{"line":"Спасибо, наконец-то по делу. Проверю магазин и платежи вечером, тогда решу.","stage":"","choices":[],"ending":"good","lesson":"Ты уложился в реальную потребность Алисы, не торопил с заявкой и предложил сравнить расходы."},"end_respect":{"line":"Спасибо, что услышали. Сейчас правда не могу говорить.","stage":"","choices":[],"ending":"neutral","lesson":"Когда человеку неудобно, корректно закончить разговор лучше, чем добиваться формального согласия."},"end_push":{"line":"Нет, спасибо. Я не готова ничего решать под давлением.","stage":"","choices":[],"ending":"bad","lesson":"Ускорение и обещания без подтверждения разрушили интерес. Алисе нужно управлять решением самой."}}},"elena":{"meta":{"name":"Елена Петровна","age":"60 лет","tone":"Домашние покупки · осторожность · доверие","title":"Елена Петровна на линии","intro":"Она готова слушать, но боится скрытых условий и сложных приложений. Нужно говорить ясно и не торопить."},"nodes":{"start":{"line":"Здравствуйте. Только я кредитные карты не люблю. Потом ведь проценты начинаются.","stage":"Первое сомнение","choices":[{"say":"Понимаю. Что вас больше всего настораживает в таких картах?","next":"fear"},{"say":"Не волнуйтесь, с Халвой никаких процентов не бывает.","next":"guarantee"},{"say":"Если не хотите обсуждать карты, я уважаю ваше решение.","next":"exit"}]},"fear":{"line":"Соседка что-то оформила, а потом не понимала, сколько и за что платит.","stage":"История соседки","choices":[{"say":"Это неприятно. Давайте спокойно разберём, что обязательно проверять перед любой покупкой.","next":"clear"},{"say":"Не слушайте соседку, у нас такого не бывает.","next":"guarantee"},{"say":"Может, лучше не оформлять ничего, если есть опасения?","next":"exit"}]},"guarantee":{"line":"Совсем никаких? А почему я тогда слышала про комиссии и платные услуги?","stage":"Неудачное обещание","choices":[{"say":"Вы правильно уточняете. Условия зависят от операции и продукта; обещать отсутствие любых расходов нельзя.","next":"clear"},{"say":"Это всё слухи, не переживайте.","next":"end_bad"}]},"clear":{"line":"Ну хорошо. А как мне узнать, сколько придётся платить, если я что-то куплю?","stage":"Нужна ясность","choices":[{"say":"До покупки проверяем сумму, срок, график платежей и все применимые условия.","next":"payments"},{"say":"С этим потом разберётесь, сначала лучше получить карту.","next":"pressure"}]},"payments":{"line":"Я в телефоне плохо ориентируюсь. Не хочу ошибиться и куда-то нажать.","stage":"Сложно с приложением","choices":[{"say":"Тогда не будем торопиться. Можно изучить доступные официальные способы получения информации и помощи.","next":"help"},{"say":"Попросите внука — он вам всё быстро оформит.","next":"grandson"}]},"grandson":{"line":"А если внук всё сделает, я сама потом не пойму, что подписала.","stage":"Решение принимает клиент","choices":[{"say":"Вы правы. Решение должно быть вашим, а все условия — понятными лично вам.","next":"help"},{"say":"Ничего страшного, главное, чтобы кто-то оформил.","next":"end_bad"}]},"help":{"line":"А вот это правильно. Я бы сперва сама разобралась. А в аптеке картой вообще можно пользоваться?","stage":"Понятная категория покупок","choices":[{"say":"Давайте проверять конкретную аптеку и условия оплаты, а не обещать одинаковые условия везде.","next":"pharmacy"},{"say":"Конечно, в любой аптеке всегда одинаковая рассрочка.","next":"guarantee"}]},"pharmacy":{"line":"Есть одна аптека возле дома. Я туда часто хожу, но новых долгов не хочу.","stage":"Осторожное отношение к долгу","choices":[{"say":"Тогда не нужно покупать в долг без необходимости. Можно уточнить доступные способы оплаты и условия.","next":"safety"},{"say":"Долги не страшны, рассрочка — это же удобно.","next":"pressure"}]},"safety":{"line":"А если мне позвонят и попросят назвать код из СМС, чтобы всё подключить?","stage":"Вопрос безопасности","choices":[{"say":"Никому не называйте коды и пароли. Если сомневаетесь, завершите звонок и обратитесь по официальному каналу банка.","next":"security"},{"say":"Если звонят из банка, можно назвать код для подтверждения.","next":"end_bad"}]},"security":{"line":"Вот это я понимаю. А если я пока не готова заводить карту?","stage":"Не спешим","choices":[{"say":"Тогда спокойно подумайте. Оформлять что-либо прямо сейчас необязательно.","next":"end_good"},{"say":"Я настаиваю, иначе упустите предложение.","next":"pressure"}]},"exit":{"line":"Спасибо, что не настаиваете. Мне нужно сначала самой всё взвесить.","stage":"Уважение к решению","choices":[{"say":"Разумеется. Если захотите разобраться, можно вернуться к разговору по официальным каналам.","next":"end_neutral"},{"say":"Но ведь вы ещё не услышали все преимущества!","next":"pressure"}]},"pressure":{"line":"Нет, не нужно меня торопить. Когда на меня давят, я сразу отказываюсь.","stage":"Давление не работает","choices":[{"say":"Вы правы, не стоило. Извините, завершим разговор.","next":"end_neutral"},{"say":"Я всё-таки объясню, почему карта вам нужна.","next":"end_bad"}]},"end_good":{"line":"Спасибо, теперь мне понятнее. Спешить не буду, сначала проверю условия и решу сама.","stage":"","choices":[],"ending":"good","lesson":"Ты объяснил принцип проверки условий, помог с безопасностью и сохранил право клиента решать самой."},"end_neutral":{"line":"Спасибо вам. На этом пока всё, до свидания.","stage":"","choices":[],"ending":"neutral","lesson":"Разговор закончился без продажи, но с уважением и сохранённым доверием — это полноценный хороший исход."},"end_bad":{"line":"Нет, я в такие истории не ввязываюсь. До свидания.","stage":"","choices":[],"ending":"bad","lesson":"Обещания без проверки, просьбы поделиться кодами или давление — серьёзные ошибки в разговоре."}}}};
+ const names={stepa:'Степа',alisa:'Алиса',elena:'Елена Петровна'};
+ const outcome={good:{icon:'✦',label:'КЛИЕНТ ЗАИНТЕРЕСОВАЛСЯ',title:'Разговор получился!'},neutral:{icon:'♡',label:'ДОВЕРИЕ СОХРАНЕНО',title:'Хороший финал без продажи'},bad:{icon:'↯',label:'ИНТЕРЕС ПОТЕРЯН',title:'Не всё прошло гладко'}};
+ let currentClient=null,currentNode=null,turn=0;
+ const toTop=()=>window.scrollTo({top:0,behavior:'instant'});
+ const show=screen=>{home.hidden=screen!=='home';choose.hidden=screen!=='choose';game.hidden=screen!=='game';toTop()};
+ const safeReplaceState=(state,title,url)=>{try{history.replaceState(state,title,url)}catch(error){/* Embedded previews have no navigable origin */}};
+ function showHome(){show('home');safeReplaceState({screen:'home'},'',location.pathname+location.search)}
+ function showChoose(){show('choose');safeReplaceState({screen:'choose'},'',location.pathname+location.search+'#choose')}
+ function startClient(client){
+  if(!story[client])return;
+  currentClient=client;
+  const meta=story[client].meta;
+  $('gameChip').textContent='СЦЕНАРИЙ · '+meta.name.toUpperCase();
+  $('gameTitle').innerHTML=meta.name+' <em>на линии.</em>';
+  $('gameSub').textContent=meta.intro;
+  $('clientChip').textContent=meta.name+', '+meta.age;
+  show('game');resetStory();
+  safeReplaceState({screen:'game',client},'',location.pathname+location.search+'#'+client);
  }
- document.getElementById('start').addEventListener('click',showChoose);
- document.getElementById('chooseBack').addEventListener('click',showHome);
- document.getElementById('backToChoose').addEventListener('click',showChoose);
+ function createBubble(kind,text){
+  const row=document.createElement('div');row.className='chat-row '+(kind==='operator'?'operator':'customer');
+  const face=document.createElement('span');face.className='chat-face '+(kind==='operator'?'operator-face':currentClient);
+  face.textContent=kind==='operator'?'✦':(currentClient==='stepa'?'С':currentClient==='alisa'?'А':'Е');
+  face.setAttribute('aria-hidden','true');
+  const bubble=document.createElement('div');bubble.className='bubble';
+  const who=document.createElement('div');who.className='who';who.textContent=kind==='operator'?'ТЫ':names[currentClient].toUpperCase();
+  const line=document.createElement('div');line.className='line';line.textContent=text;
+  bubble.append(who,line);row.append(face,bubble);log.append(row);
+  return row;
+ }
+ function resetStory(){
+  turn=0;log.replaceChildren();endingPanel.hidden=true;$('answerArea').hidden=false;
+  enterNode('start',null,false);
+ }
+ function enterNode(id,reply,scroll){
+  const n=story[currentClient].nodes[id];if(!n)return;
+  currentNode=id;
+  if(reply){createBubble('operator',reply);turn++}
+  const bubble=createBubble('customer',n.line);
+  $('turnCounter').textContent='Раунд '+(turn+1);
+  $('progressFill').style.width=(n.ending?100:Math.min(93,8+turn*13))+'%';
+  if(n.ending){
+   $('answerArea').hidden=true;endingPanel.hidden=false;
+   const ending=outcome[n.ending];endingPanel.dataset.tone=n.ending;
+   $('endingIcon').textContent=ending.icon;$('endingType').textContent=ending.label;
+   $('endingTitle').textContent=ending.title;$('endingLesson').textContent=n.lesson;
+  }else{
+   endingPanel.hidden=true;$('answerArea').hidden=false;
+   choices.replaceChildren();
+   n.choices.forEach((item,i)=>{
+    const btn=document.createElement('button');btn.type='button';btn.className='choice';
+    const number=document.createElement('span');number.className='num';number.textContent=String.fromCharCode(65+i);
+    const description=document.createElement('span');description.textContent=item.say;description.style.flex='1';
+    const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='›';arrow.setAttribute('aria-hidden','true');
+    btn.append(number,description,arrow);
+    btn.addEventListener('click',()=>enterNode(item.next,item.say,true));choices.append(btn);
+   });
+  }
+  if(scroll){
+   // Keep latest client bubble and the response controls in view on mobile, without moving the browser to the top.
+   requestAnimationFrame(()=>{
+    const target=n.ending?endingPanel:bubble;
+    const top=target.getBoundingClientRect().top+window.scrollY-120;
+    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+   });
+  }
+ }
+ $('start').addEventListener('click',showChoose);
+ $('chooseBack').addEventListener('click',showHome);
+ $('backToChoose').addEventListener('click',showChoose);
+ $('restart').addEventListener('click',()=>{resetStory();toTop()});
+ $('anotherClient').addEventListener('click',showChoose);
  document.querySelectorAll('[data-client]').forEach(btn=>btn.addEventListener('click',()=>startClient(btn.dataset.client)));
  const hash=location.hash.replace('#','');
- if(hash && clientMeta[hash]) startClient(hash); else if(hash==='choose') showChoose(); else showHome();
+ if(hash&&story[hash])startClient(hash);else if(hash==='choose')showChoose();else showHome();
 })();
 </script>
 </body>
